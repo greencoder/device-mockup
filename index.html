@@ -14,6 +14,7 @@
         height: 100vh;
         width: 100vw;
       }
+
       body {
         display: flex;
         flex-direction: row;
@@ -29,7 +30,6 @@
         height: 920px;
         background-color: #fff;
         border: 1px solid #ccc;
-
       }
 
       iframe#content {
@@ -101,7 +101,7 @@
           if (evt.key === 'Enter' || evt.keyCode === 13) {
             let newUrl = document.querySelector('input#url').value;
             console.log(newUrl);
-            document.querySelector('iframe#content').src = newUrl;
+            document.querySelector('#content').src = newUrl;
           }
         });
       });
@@ -129,7 +129,7 @@
             <input type="text" id="url" value="https://www.example.org" />
           </div>
         </header>
-        <iframe id="content" src="https://www.example.com"></iframe>
+        <iframe sandbox="allow-scripts allow-same-origin allow-top-navigation" id="content" src="https://www.example.com"></iframe>
       </section>
       <footer>
         <p>Choose a device: <a href="ipad.html">iPad</a> &middot; <a href="index.html">Desktop Browser</a></p>
