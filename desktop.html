@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Desktop Browser Mockup Maker</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <main>
+      <section id="device-viewport">
+        <header>
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" style="fill:#fe6057;" />
+          </svg>
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" style="fill:#febd2e;" />
+          </svg>
+          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="45" style="fill:#24c840;" />
+          </svg>
+          <div class="url-bar">
+            <svg viewBox="0 0 20 20" id="padlock" xmlns="http://www.w3.org/2000/svg">
+              <path class="st0" d="M15.4,7H14V5.6c0-2.2-1.8-4-4-4s-4,1.8-4,4V7H4.6C3.9,7,3.3,7.6,3.3,8.3v8.8c0,0.7,0.6,1.3,1.3,1.3h10.7
+              c0.7,0,1.3-0.6,1.3-1.3V8.3C16.7,7.6,16.1,7,15.4,7z M7.6,5.6c0-1.3,1.1-2.4,2.4-2.4s2.4,1.1,2.4,2.4V7H7.6V5.6z" style="fill:#666" />
+            </svg>
+            <input type="text" id="url" value="https://www.example.org" />
+          </div>
+        </header>
+        <div id="content" draggable="true">
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

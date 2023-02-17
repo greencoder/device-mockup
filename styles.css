@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The viewport of the device */
+
+section#device-viewport {
+  margin-left: 50px;
+  width: 1280px;
+  height: 920px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+div#content {
+  display: block;
+  height: calc(100% - 70px);
+  width: 100%;
+  border: none;
+  background: url('instructions.png'), #f0f0f2;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+}
+
+div#content.highlight {
+  background-color: yellow;
+}
+
+div#content img {
+  max-width: 100%;
+}
+
+/* Browser Address Bar Header */
+
+header {
+  background-color: #efefef;
+  border-bottom: 1px solid #ccc;
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 15px;
+}
+
+header svg {
+  height: 22px;
+  width: 22px;
+  margin: 0px 4px;
+}
+
+header div.url-bar {
+  margin-left: 12px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 15px;
+  padding-left: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+header div.url-bar svg {
+  height: 15px;
+  width: 15px;
+}
+
+header input {
+  background-color: transparent;
+  padding: 9px 5px;
+  border: 0px;
+  font-size: 16px;
+  width: 100%;
+}
+
+footer {
+  padding-top: 50px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 18px;
+}
