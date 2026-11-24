@@ -1,97 +1,504 @@
-* {
-  box-sizing: border-box;
-  outline: none;
+/* ==========================================================================
+   Device Mockup Maker
+   Shared styles for the desktop, iPad and iPhone pages.
+   ========================================================================== */
+
+:root {
+  --page-bg: #ffffff;
+  --ink: #1d1d1f;
+  --muted: #6e6e73;
+  --ios-blue: #007aff;
+  --chrome-bg: #f6f6f6;
+  --chrome-line: #d9d9d9;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-html, body {
-  height: 100vh;
-  width: 100vw;
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
 }
 
 body {
+  min-height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  align-items: safe center;
+  justify-content: center;
+  justify-content: safe center;
+  gap: 36px;
+  padding: 40px 24px;
+  background: var(--page-bg);
+  color: var(--ink);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+
+svg {
+  display: block;
+  flex: none;
+}
+
+/* Stroked toolbar icons */
+.icon {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon.dim {
+  opacity: 0.3;
+}
+
+/* Filled status-bar glyphs */
+.glyph {
+  fill: currentColor;
+}
+
+/* --------------------------------------------------------------------------
+   Shared device pieces
+   -------------------------------------------------------------------------- */
+
+.device {
+  position: relative;
+  flex: none;
+}
+
+.screen {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Side buttons on the iPad and iPhone frames */
+.hw {
+  position: absolute;
+  border-radius: 2px;
+}
+
+/* Address field */
+.url-field {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) 28px;
+  align-items: center;
+  min-width: 0;
+  color: var(--ink);
+  cursor: text;
+}
+
+.url-field .address {
+  display: flex;
   justify-content: center;
   align-items: center;
+  gap: 5px;
+  min-width: 0;
 }
 
-/* The viewport of the device */
+.url-field input {
+  min-width: 0;
+  max-width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: center;
+  field-sizing: content;
+}
 
-section#device-viewport {
-  margin-left: 50px;
+.url-field input:focus {
+  outline: none;
+}
+
+.url-field:focus-within {
+  box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.35);
+}
+
+.padlock {
+  width: 12px;
+  height: 12px;
+  fill: currentColor;
+  opacity: 0.55;
+}
+
+.aa {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.aa small {
+  font-size: 0.72em;
+}
+
+.url-field .reload {
+  justify-self: end;
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+/* --------------------------------------------------------------------------
+   Screenshot drop area
+   -------------------------------------------------------------------------- */
+
+.screen-content {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  background: #f0f0f2 url("instructions.png") no-repeat center / min(400px, 85%) auto;
+  cursor: pointer;
+}
+
+.screen-content::-webkit-scrollbar {
+  display: none;
+}
+
+.screen-content img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.has-image .screen-content {
+  background: #fff;
+  cursor: auto;
+}
+
+.screen-content.highlight {
+  background-color: #e5efff;
+  box-shadow: inset 0 0 0 3px var(--ios-blue);
+}
+
+.screen-content:focus-visible {
+  outline: 3px solid var(--ios-blue);
+  outline-offset: -3px;
+}
+
+/* --------------------------------------------------------------------------
+   Page controls: device switcher + hint
+   -------------------------------------------------------------------------- */
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.device-nav {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  background: #e8e8ed;
+  border-radius: 9px;
+}
+
+.device-nav a {
+  padding: 6px 18px;
+  border-radius: 7px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.device-nav a:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.device-nav a[aria-current="page"] {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0 0 0.5px rgba(0, 0, 0, 0.06);
+}
+
+.device-nav a:focus-visible {
+  outline: 2px solid var(--ios-blue);
+  outline-offset: 2px;
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* --------------------------------------------------------------------------
+   Desktop: macOS Safari window
+   -------------------------------------------------------------------------- */
+
+.desktop {
   width: 1280px;
   height: 920px;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 10px;
 }
 
-div#content {
-  display: block;
-  height: calc(100% - 70px);
-  width: 100%;
-  border: none;
-  background: url('instructions.png'), #f0f0f2;
-  background-repeat: no-repeat;
-  background-position: center;
-  overflow: hidden;
+.desktop .toolbar {
+  flex: none;
+  height: 52px;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 560px) 1fr;
+  align-items: center;
+  padding: 0 16px;
+  background: var(--chrome-bg);
+  border-bottom: 1px solid var(--chrome-line);
 }
 
-div#content.highlight {
-  background-color: yellow;
+.traffic-lights {
+  display: flex;
+  gap: 8px;
 }
 
-div#content img {
-  max-width: 100%;
+.traffic-lights span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 0.5px rgba(0, 0, 0, 0.18);
 }
 
-/* Browser Address Bar Header */
+.traffic-lights span:nth-child(1) { background: #ff5f57; }
+.traffic-lights span:nth-child(2) { background: #febc2e; }
+.traffic-lights span:nth-child(3) { background: #28c840; }
 
-header {
-  background-color: #efefef;
-  border-bottom: 1px solid #ccc;
-  height: 70px;
-  width: 100%;
+.desktop .url-field {
+  height: 30px;
+  padding: 0 8px;
+  background: rgba(0, 0, 0, 0.055);
+  border-radius: 8px;
+  font-size: 13px;
+}
+
+/* The window grows to the full height of a dropped screenshot */
+.desktop.has-image {
+  height: auto;
+}
+
+.desktop.has-image .screen-content {
+  flex: none;
+  overflow: visible;
+}
+
+/* --------------------------------------------------------------------------
+   iPad: all-screen design, landscape
+   -------------------------------------------------------------------------- */
+
+.ipad {
+  --metal: #a7a9ad;
+  padding: 20px;
+  background: #000;
+  border: 5px solid var(--metal);
+  border-radius: 46px;
+  box-shadow: inset 0 0 0 1px #3a3a3c;
+}
+
+.ipad .hw {
+  background: var(--metal);
+}
+
+/* Top button, on the top edge near the right */
+.ipad .hw-top {
+  top: -9px;
+  right: 120px;
+  width: 56px;
+  height: 4px;
+}
+
+/* Volume up and down, on the right edge */
+.ipad .hw-volume {
+  top: 60px;
+  right: -9px;
+  width: 4px;
+  height: 44px;
+  box-shadow: 0 56px 0 var(--metal);
+}
+
+/* Front camera, centered on the long edge */
+.ipad .camera {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: #1a1d26;
+  box-shadow: inset 0 0 0 1.5px #2c3140;
+}
+
+.ipad .screen {
+  width: 1180px;
+  height: 820px;
+  border-radius: 20px;
+}
+
+.ipad header {
+  flex: none;
+  background: var(--chrome-bg);
+  border-bottom: 1px solid var(--chrome-line);
+}
+
+.ipad .status-bar {
+  height: 26px;
   display: flex;
   justify-content: space-between;
-  flex-direction: row;
   align-items: center;
-  padding: 0px 15px;
+  padding: 2px 24px 0;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-header svg {
-  height: 22px;
-  width: 22px;
-  margin: 0px 4px;
-}
-
-header div.url-bar {
-  margin-left: 12px;
-  width: 100%;
+.status-group {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  background-color: #fff;
-  border-radius: 15px;
-  padding-left: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 6px;
 }
 
-header div.url-bar svg {
-  height: 15px;
-  width: 15px;
+.ipad .toolbar {
+  height: 50px;
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 520px) 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 0 18px 6px;
+  color: var(--ios-blue);
 }
 
-header input {
-  background-color: transparent;
-  padding: 9px 5px;
-  border: 0px;
-  font-size: 16px;
-  width: 100%;
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 22px;
 }
 
-footer {
-  padding-top: 50px;
-  text-align: center;
-  font-family: sans-serif;
-  font-size: 18px;
+.toolbar-group.end {
+  justify-content: flex-end;
+}
+
+.ipad .url-field {
+  height: 36px;
+  padding: 0 10px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+/* --------------------------------------------------------------------------
+   iPhone: Dynamic Island design, portrait
+   -------------------------------------------------------------------------- */
+
+.iphone {
+  --metal: #8f8f94;
+  padding: 12px;
+  background: #000;
+  border: 3px solid var(--metal);
+  border-radius: 68px;
+  box-shadow: inset 0 0 0 1px #2c2c2e;
+}
+
+.iphone .hw {
+  left: -6px;
+  width: 3px;
+  background: var(--metal);
+}
+
+.iphone .hw-action   { top: 112px; height: 30px; }
+.iphone .hw-vol-up   { top: 170px; height: 58px; }
+.iphone .hw-vol-down { top: 240px; height: 58px; }
+
+.iphone .hw-power {
+  left: auto;
+  right: -6px;
+  top: 200px;
+  height: 92px;
+}
+
+.iphone .screen {
+  width: 393px;
+  height: 852px;
+  border-radius: 53px;
+}
+
+.dynamic-island {
+  position: absolute;
+  z-index: 2;
+  top: 11px;
+  left: 50%;
+  width: 124px;
+  height: 36px;
+  margin-left: -62px;
+  border-radius: 18px;
+  background: #000;
+}
+
+.iphone header {
+  flex: none;
+  background: var(--chrome-bg);
+  border-bottom: 0.5px solid var(--chrome-line);
+}
+
+.iphone .status-bar {
+  height: 54px;
+  display: grid;
+  grid-template-columns: 1fr 124px 1fr;
+  align-items: center;
+  padding-top: 4px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.iphone .status-bar .time {
+  justify-self: center;
+}
+
+.iphone .status-bar .status-group {
+  justify-self: center;
+  gap: 6px;
+}
+
+.url-row {
+  padding: 2px 14px 10px;
+}
+
+.iphone .url-field {
+  height: 40px;
+  padding: 0 10px;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  font-size: 17px;
+}
+
+.safari-toolbar {
+  position: relative;
+  flex: none;
+  height: 83px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 12px 8px 0;
+  background: var(--chrome-bg);
+  border-top: 0.5px solid var(--chrome-line);
+  color: var(--ios-blue);
+}
+
+.home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 134px;
+  height: 5px;
+  margin-left: -67px;
+  border-radius: 3px;
+  background: #000;
 }

@@ -1,176 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>iPad Mockup Maker</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      * {
-        box-sizing: border-box;
-        outline: none;
-      }
-
-      html, body {
-        height: 100vh;
-        width: 100vw;
-      }
-      body {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-      }
-
-      section#device-frame {
-        background-color: #000;
-        padding: 50px 80px;
-        border-radius: 80px;
-        border: 12px solid #85878d;
-        position: relative;
-      }
-
-      svg#home-button {
-        position: absolute;
-        top: calc(50% - 40px);
-        left: 30px;
-        height: 80px;
-        width: 80px;
-        fill: #000;
-        stroke: #666;
-        stroke-width: 5px;
-      }
-
-      svg#camera {
-        position: absolute;
-        top: calc(50% - 10px);
-        height: 20px;
-        width: 20px;
-        right: 30px;
-        fill: #000;
-        stroke: #666;
-        stroke-width: 10px;
-      }
-
-      /* The viewport of the device */
-
-      section#device-viewport {
-        margin-left: 50px;
-        width: 1024px;
-        height: 768px;
-        background-color: #fff;
-
-      }
-
-      iframe#content {
-        display: block;
-        background-color: #fff;
-        height: calc(100% - 70px);
-        width: 100%;
-        border: none;
-        overflow: auto;
-      }
-
-      /* Browser Address Bar Header */
-
-      header {
-        background-color: #f7f7f7;
-        border-bottom: 1px solid #ccc;
-        height: 70px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        align-items: center;
-        padding: 0px 15px;
-      }
-
-      header svg {
-        height: 22px;
-        width: 22px;
-        margin: 0px 4px;
-      }
-
-      header div.url-bar {
-        margin-left: 12px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.05);
-        border-radius: 15px;
-        padding-left: 10px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        text-align: center;
-      }
-
-      header div.url-bar svg#reload {
-        height: 35px;
-        width: 35px;
-        fill: #000;
-      }
-
-      header input {
-        background-color: transparent;
-        padding: 9px 5px;
-        border: 0px;
-        font-size: 16px;
-        width: 100%;
-        text-align: center;
-      }
-
-      footer {
-        padding-top: 50px;
-        text-align: center;
-        font-family: sans-serif;
-        font-size: 18px;
-      }
-
-    </style>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('input#url').addEventListener('keyup', function(evt) {
-          if (evt.key === 'Enter' || evt.keyCode === 13) {
-            let newUrl = document.querySelector('input#url').value;
-            console.log(newUrl);
-            document.querySelector('iframe#content').src = newUrl;
-          }
-        });
-      });
-    </script>
-
+    <title>iPad Mockup Maker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <main>
-      <section id="device-frame">
+    <main class="device ipad">
+      <span class="hw hw-top" aria-hidden="true"></span>
+      <span class="hw hw-volume" aria-hidden="true"></span>
+      <span class="camera" aria-hidden="true"></span>
 
-        <!-- Home button circle -->
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="home-button">
-          <circle cx="50" cy="50" r="45" />
-        </svg>
-
-        <!-- Camera circle -->
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" id="camera">
-          <circle cx="50" cy="50" r="45" />
-        </svg>
-
-        <section id="device-viewport">
-          <header>
-            <div class="url-bar">
-              <input type="text" id="url" value="https://www.example.org" />
-              <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" id="reload">
-                <path d="M58.385,34.343V21.615L53.77,26.23C50.244,22.694,45.377,20.5,40,20.5c-10.752,0-19.5,8.748-19.5,19.5S29.248,59.5,40,59.5  c7.205,0,13.496-3.939,16.871-9.767l-4.326-2.496C50.035,51.571,45.358,54.5,40,54.5c-7.995,0-14.5-6.505-14.5-14.5  S32.005,25.5,40,25.5c3.998,0,7.617,1.632,10.239,4.261l-4.583,4.583H58.385z"/>
-              </svg>
+      <div class="screen">
+        <header>
+          <div class="status-bar">
+            <div class="status-group"><span>9:41</span><span>Tue Jan 9</span></div>
+            <div class="status-group"><svg class="glyph" viewBox="0 0 16 12" width="16" height="12" aria-hidden="true"><path d="M8 2.2c2.4 0 4.6.9 6.3 2.5l1.2-1.2C13.5 1.6 10.9.5 8 .5S2.5 1.6.5 3.5l1.2 1.2C3.4 3.1 5.6 2.2 8 2.2zm0 3.4c1.5 0 2.8.5 3.9 1.5l1.2-1.2C11.7 4.6 9.9 3.9 8 3.9S4.3 4.6 2.9 5.9l1.2 1.2C5.2 6.1 6.5 5.6 8 5.6zm0 3.4c.6 0 1.1.2 1.5.6L8 11.5 6.5 9.6c.4-.4.9-.6 1.5-.6z" /></svg><span>100%</span><svg class="glyph" viewBox="0 0 27 13" width="27" height="13" aria-hidden="true"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4" /><rect x="2" y="2" width="20" height="9" rx="2" /><path d="M25 4.5v4c.8-.3 1.5-1.1 1.5-2s-.7-1.7-1.5-2z" opacity=".4" /></svg></div>
+          </div>
+          <div class="toolbar">
+            <div class="toolbar-group">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" /><path d="M9 5v14" /></svg>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+              <svg class="icon dim" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
             </div>
-          </header>
-          <iframe sandbox="allow-scripts allow-same-origin allow-top-navigation" id="content" src="https://www.example.com"></iframe>
-        </section>
-
-      </section>
-
-      <footer>
-        <p>Choose a device: <a href="ipad.html">iPad</a> &middot; <a href="index.html">Desktop Browser</a></p>
-      </footer>
+            <label class="url-field">
+              <span class="aa"><small>A</small>A</span>
+              <span class="address">
+                <svg class="padlock" viewBox="0 0 20 20" aria-hidden="true"><path d="M15.4,7H14V5.6c0-2.2-1.8-4-4-4s-4,1.8-4,4V7H4.6C3.9,7,3.3,7.6,3.3,8.3v8.8c0,0.7,0.6,1.3,1.3,1.3h10.7c0.7,0,1.3-0.6,1.3-1.3V8.3C16.7,7.6,16.1,7,15.4,7z M7.6,5.6c0-1.3,1.1-2.4,2.4-2.4s2.4,1.1,2.4,2.4V7H7.6V5.6z" /></svg>
+                <input type="text" id="url" value="example.com" aria-label="Address" spellcheck="false" />
+              </span>
+              <svg class="icon reload" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12a7 7 0 1 1-2.05-4.95M19 4v4h-4" /></svg>
+            </label>
+            <div class="toolbar-group end">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4M8 10H6v11h12V10h-2" /></svg>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="8" width="12" height="12" rx="2" /><path d="M8 8V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2" /></svg>
+            </div>
+          </div>
+        </header>
+        <div class="screen-content" tabindex="0" role="button" aria-label="Add a screenshot"></div>
+      </div>
     </main>
+
+    <footer class="controls">
+      <nav class="device-nav" aria-label="Choose a device">
+        <a href="index.html">Desktop</a>
+        <a href="ipad.html" aria-current="page">iPad</a>
+        <a href="iphone.html">iPhone</a>
+      </nav>
+      <p class="hint">Drop, paste, or click to add a screenshot.</p>
+    </footer>
+
+    <input type="file" id="file-picker" accept="image/*" hidden />
   </body>
 </html>

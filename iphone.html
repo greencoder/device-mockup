@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iPhone Mockup Maker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="device iphone">
+      <span class="hw hw-action" aria-hidden="true"></span>
+      <span class="hw hw-vol-up" aria-hidden="true"></span>
+      <span class="hw hw-vol-down" aria-hidden="true"></span>
+      <span class="hw hw-power" aria-hidden="true"></span>
+
+      <div class="screen">
+        <div class="dynamic-island" aria-hidden="true"></div>
+        <header>
+          <div class="status-bar">
+            <span class="time">9:41</span>
+            <span></span>
+            <span class="status-group"><svg class="glyph" viewBox="0 0 18 12" width="18" height="12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx="1" /><rect x="5" y="5.5" width="3" height="6.5" rx="1" /><rect x="10" y="3" width="3" height="9" rx="1" /><rect x="15" y="0" width="3" height="12" rx="1" /></svg><svg class="glyph" viewBox="0 0 16 12" width="16" height="12" aria-hidden="true"><path d="M8 2.2c2.4 0 4.6.9 6.3 2.5l1.2-1.2C13.5 1.6 10.9.5 8 .5S2.5 1.6.5 3.5l1.2 1.2C3.4 3.1 5.6 2.2 8 2.2zm0 3.4c1.5 0 2.8.5 3.9 1.5l1.2-1.2C11.7 4.6 9.9 3.9 8 3.9S4.3 4.6 2.9 5.9l1.2 1.2C5.2 6.1 6.5 5.6 8 5.6zm0 3.4c.6 0 1.1.2 1.5.6L8 11.5 6.5 9.6c.4-.4.9-.6 1.5-.6z" /></svg><svg class="glyph" viewBox="0 0 27 13" width="27" height="13" aria-hidden="true"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="currentColor" opacity=".4" /><rect x="2" y="2" width="20" height="9" rx="2" /><path d="M25 4.5v4c.8-.3 1.5-1.1 1.5-2s-.7-1.7-1.5-2z" opacity=".4" /></svg></span>
+          </div>
+          <div class="url-row">
+            <label class="url-field">
+              <span class="aa"><small>A</small>A</span>
+              <span class="address">
+                <svg class="padlock" viewBox="0 0 20 20" aria-hidden="true"><path d="M15.4,7H14V5.6c0-2.2-1.8-4-4-4s-4,1.8-4,4V7H4.6C3.9,7,3.3,7.6,3.3,8.3v8.8c0,0.7,0.6,1.3,1.3,1.3h10.7c0.7,0,1.3-0.6,1.3-1.3V8.3C16.7,7.6,16.1,7,15.4,7z M7.6,5.6c0-1.3,1.1-2.4,2.4-2.4s2.4,1.1,2.4,2.4V7H7.6V5.6z" /></svg>
+                <input type="text" id="url" value="example.com" aria-label="Address" spellcheck="false" />
+              </span>
+              <svg class="icon reload" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12a7 7 0 1 1-2.05-4.95M19 4v4h-4" /></svg>
+            </label>
+          </div>
+        </header>
+        <div class="screen-content" tabindex="0" role="button" aria-label="Add a screenshot"></div>
+        <footer class="safari-toolbar" aria-hidden="true">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
+          <svg class="icon dim" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" /></svg>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12M8 7l4-4 4 4M8 10H6v11h12V10h-2" /></svg>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6.5C10 5 7 4.5 4 5v14c3-.5 6 0 8 1.5 2-1.5 5-2 8-1.5V5c-3-.5-6 0-8 1.5zm0 0v14" /></svg>
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="8" width="12" height="12" rx="2" /><path d="M8 8V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-2" /></svg>
+          <span class="home-indicator"></span>
+        </footer>
+      </div>
+    </main>
+
+    <footer class="controls">
+      <nav class="device-nav" aria-label="Choose a device">
+        <a href="index.html">Desktop</a>
+        <a href="ipad.html">iPad</a>
+        <a href="iphone.html" aria-current="page">iPhone</a>
+      </nav>
+      <p class="hint">Drop, paste, or click to add a screenshot.</p>
+    </footer>
+
+    <input type="file" id="file-picker" accept="image/*" hidden />
+  </body>
+</html>

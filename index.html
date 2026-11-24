@@ -1,139 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Desktop Browser Mockup Maker</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      * {
-        box-sizing: border-box;
-        outline: none;
-      }
-
-      html, body {
-        height: 100vh;
-        width: 100vw;
-      }
-
-      body {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-      }
-
-      /* The viewport of the device */
-
-      section#device-viewport {
-        margin-left: 50px;
-        width: 1280px;
-        height: 920px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-      }
-
-      iframe#content {
-        display: block;
-        background-color: #fff;
-        height: calc(100% - 70px);
-        width: 100%;
-        border: none;
-        overflow: auto;
-      }
-
-      /* Browser Address Bar Header */
-
-      header {
-        background-color: #efefef;
-        border-bottom: 1px solid #ccc;
-        height: 70px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        align-items: center;
-        padding: 0px 15px;
-      }
-
-      header svg {
-        height: 22px;
-        width: 22px;
-        margin: 0px 4px;
-      }
-
-      header div.url-bar {
-        margin-left: 12px;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        background-color: #fff;
-        border-radius: 15px;
-        padding-left: 10px;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-      }
-
-      header div.url-bar svg {
-        height: 15px;
-        width: 15px;
-      }
-
-      header input {
-        background-color: transparent;
-        padding: 9px 5px;
-        border: 0px;
-        font-size: 16px;
-        width: 100%;
-      }
-
-      footer {
-        padding-top: 50px;
-        text-align: center;
-        font-family: sans-serif;
-        font-size: 18px;
-      }
-
-    </style>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('input#url').addEventListener('keyup', function(evt) {
-          if (evt.key === 'Enter' || evt.keyCode === 13) {
-            let newUrl = document.querySelector('input#url').value;
-            console.log(newUrl);
-            document.querySelector('#content').src = newUrl;
-          }
-        });
-      });
-    </script>
-
+    <title>Desktop Mockup Maker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
   </head>
   <body>
-    <main>
-      <section id="device-viewport">
-        <header>
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" style="fill:#fe6057;" />
-          </svg>
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" style="fill:#febd2e;" />
-          </svg>
-          <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" style="fill:#24c840;" />
-          </svg>
-          <div class="url-bar">
-            <svg viewBox="0 0 20 20" id="padlock" xmlns="http://www.w3.org/2000/svg">
-              <path class="st0" d="M15.4,7H14V5.6c0-2.2-1.8-4-4-4s-4,1.8-4,4V7H4.6C3.9,7,3.3,7.6,3.3,8.3v8.8c0,0.7,0.6,1.3,1.3,1.3h10.7
-              c0.7,0,1.3-0.6,1.3-1.3V8.3C16.7,7.6,16.1,7,15.4,7z M7.6,5.6c0-1.3,1.1-2.4,2.4-2.4s2.4,1.1,2.4,2.4V7H7.6V5.6z" style="fill:#666" />
-            </svg>
-            <input type="text" id="url" value="https://www.example.org" />
-          </div>
-        </header>
-        <iframe sandbox="allow-scripts allow-same-origin allow-top-navigation" id="content" src="https://www.example.com"></iframe>
-      </section>
-      <footer>
-        <p>Choose a device: <a href="ipad.html">iPad</a> &middot; <a href="index.html">Desktop Browser</a></p>
-      </footer>
+    <main class="device screen desktop">
+      <header class="toolbar">
+        <div class="traffic-lights" aria-hidden="true"><span></span><span></span><span></span></div>
+        <label class="url-field">
+          <span></span>
+          <span class="address">
+            <svg class="padlock" viewBox="0 0 20 20" aria-hidden="true"><path d="M15.4,7H14V5.6c0-2.2-1.8-4-4-4s-4,1.8-4,4V7H4.6C3.9,7,3.3,7.6,3.3,8.3v8.8c0,0.7,0.6,1.3,1.3,1.3h10.7c0.7,0,1.3-0.6,1.3-1.3V8.3C16.7,7.6,16.1,7,15.4,7z M7.6,5.6c0-1.3,1.1-2.4,2.4-2.4s2.4,1.1,2.4,2.4V7H7.6V5.6z" /></svg>
+            <input type="text" id="url" value="example.com" aria-label="Address" spellcheck="false" />
+          </span>
+          <svg class="icon reload" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12a7 7 0 1 1-2.05-4.95M19 4v4h-4" /></svg>
+        </label>
+        <span></span>
+      </header>
+      <div class="screen-content" tabindex="0" role="button" aria-label="Add a screenshot"></div>
     </main>
+
+    <footer class="controls">
+      <nav class="device-nav" aria-label="Choose a device">
+        <a href="index.html" aria-current="page">Desktop</a>
+        <a href="ipad.html">iPad</a>
+        <a href="iphone.html">iPhone</a>
+      </nav>
+      <p class="hint">Drop, paste, or click to add a screenshot.</p>
+    </footer>
+
+    <input type="file" id="file-picker" accept="image/*" hidden />
   </body>
 </html>
